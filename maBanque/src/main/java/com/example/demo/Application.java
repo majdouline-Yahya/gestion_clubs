@@ -22,8 +22,9 @@ public class Application implements CommandLineRunner{
 	@Autowired
 	private CompteRepository compteRepository;
 	
-	@Autowired 
-	private IClubService clubService;
+//	@Autowired 
+//	private IClubService clubService;
+	
 	public static void main(String[] args) {
 		   
 		   SpringApplication.run(Application.class, args);
