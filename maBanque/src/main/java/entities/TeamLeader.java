@@ -1,8 +1,10 @@
 package entities;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("team_leader")
 public class TeamLeader extends Utilisateur{
 
 	public TeamLeader() {
