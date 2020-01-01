@@ -22,6 +22,7 @@ public class Evenement implements Serializable {
     
 	@Id @GeneratedValue
 	private Long idEvent;
+	private String TypeEvent;
 	private String Description;
 	private String Theme;
 	private String lieu;
@@ -117,6 +118,26 @@ public class Evenement implements Serializable {
 	}
 
 	public void setEvenements(Set<Club> clubs) {
+		this.clubs = clubs;
+	}
+
+	public String getTypeEvent() {
+		return TypeEvent;
+	}
+
+	public void setTypeEvent(String typeEvent) {
+		TypeEvent = typeEvent;
+	}
+
+	public Collection<Utilisateur> getEquipeOrganisation() {
+		return equipeOrganisation;
+	}
+
+	public void setEquipeOrganisation(Collection<Utilisateur> equipeOrganisation) {
+		this.equipeOrganisation = equipeOrganisation;
+	}
+
+	public void setClubs(Collection<Club> clubs) {
 		this.clubs = clubs;
 	}
 	
