@@ -1,6 +1,7 @@
 package metierService;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,14 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import dao.ClubRepesitory;
+import dao.ClubRepository;
 import entities.Club;
+import entities.membreAdherant;
 
 @Service
 @Transactional
 public class ClubImpl implements IClubService{
 	@Autowired
-	private ClubRepesitory clubReository;
+	private ClubRepository clubReository;
 	
 	
 	@Override
@@ -76,6 +78,29 @@ public class ClubImpl implements IClubService{
 		{
 			return new ArrayList<Club>();
 		}
+	}
+
+	@Override
+	public List<Club> consulterClubIntitule(String intitule) {
+		List<Club> clubs=clubReository.consultByIntitule(intitule);
+		if(clubs.size()>0)
+		{
+			return clubs;
+		}else
+		{
+			return new ArrayList<Club>();
+		}
+	}
+
+	@Override
+	public Collection<membreAdherant> TousMembres(Long id) {
+		Collection<membreAdherant> clubs=clubReository.TousMembres(id);
+		if(!clubs.isEmpty())
+		{
+			return clubs;
+		}else {
+			throw new RuntimeException("aucun membre");
+			}
 	}
 
 }
