@@ -22,8 +22,16 @@ public class EventImpl implements IEventService {
 
 	@Override
 	public Evenement findOne(Long id) {
-		Evenement evenement=evenementRepository.getOne(id);
+		Evenement evenement=null;
+		try {
+			evenement=evenementRepository.getOne(id);
+			
+		} catch (Exception e) {
+				return null;
+		}
+		
 		return evenement;
+		 
 	}
 
 	@Override
