@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import dao.ClientRepository;
-import dao.ClubRepesitory;
+import dao.ClubRepository;
 import dao.CompteRepository;
 import dao.EvenementRepository;
 import entities.Club;
@@ -38,7 +38,7 @@ public class Application implements CommandLineRunner{
 	@Autowired
 	private EvenementRepository evenementRepository;
 	@Autowired 
-	private ClubRepesitory clubRepository;
+	private ClubRepository clubRepository;
 	public static void main(String[] args) {
 		   
 		   SpringApplication.run(Application.class, args);
@@ -68,8 +68,6 @@ public class Application implements CommandLineRunner{
 		eve.add(e3);
 		Evenement e4=evenementRepository.save(new Evenement("informatique", "chatbot", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null, null));
 		eve.add(e4);
-		Evenement e5=evenementRepository.save(new Evenement("informatique", "chatbot", "fst Tanger", new Date(2020, 02, 15), new Date(2020, 02, 15), null, null));
-		eve.add(e5);
 		clubRepository.save(new Club("C.O.D.E", new Date(), tl,null, null));
 	}
 

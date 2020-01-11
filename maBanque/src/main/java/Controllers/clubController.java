@@ -1,5 +1,6 @@
 package Controllers;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import entities.Club;
+import entities.membreAdherant;
 import metierService.ClubImpl;
 import metierService.IClubService;
 
@@ -34,12 +36,29 @@ public class clubController {
 		return new ResponseEntity<List<Club>>(list,new HttpHeaders(),HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/all/{id}",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/search/{id}",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	 public ResponseEntity<Club> consulterClub(@PathVariable("id") Long id)
 	{
 			Club club = cl.consulterClub(id);
 			return new ResponseEntity<Club>(club, new HttpHeaders(), HttpStatus.OK);
 	}
+	
+	
+	@RequestMapping(value="/name/{intitule}",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Club>> consulterClubsIntitule(@PathVariable("intitule") String intitule)
+	{
+		List<Club> list=cl.consulterClubIntitule(intitule);
+		return new ResponseEntity<List<Club>>(list,new HttpHeaders(),HttpStatus.OK);
+	}
+	
+	
+	@RequestMapping(value="/allMembers/{id}",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Collection<membreAdherant>> TousMemberes(@PathVariable("id") Long id)
+	{
+		Collection<membreAdherant> list=cl.TousMembres(id);
+		return new ResponseEntity<Collection<membreAdherant>>(list,new HttpHeaders(),HttpStatus.OK);
+	}
+	
 	
 	@RequestMapping(value="/create",method=RequestMethod.POST,consumes=org.springframework.http.MediaType.APPLICATION_JSON_VALUE,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Club> ajouterClub(Club c)
