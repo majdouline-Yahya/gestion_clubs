@@ -19,7 +19,7 @@ public class EventImpl implements IEventService {
 		Collection<Evenement> evenements= evenementRepository.findAll();
 		return evenements;
 	}
-
+    
 	@Override
 	public Evenement findOne(Long id) {
 		Evenement evenement=null;
@@ -33,7 +33,18 @@ public class EventImpl implements IEventService {
 		return evenement;
 		 
 	}
+	
+	@Override
+	public Collection<Evenement> findByTheme(String theme) {
+		Collection<Evenement> evenements= evenementRepository.findByTheme(theme);
+		return evenements;
+	}
 
+	@Override
+	public Collection<Evenement> findByDescription(String description) {
+		Collection<Evenement> evenements= evenementRepository.findByDescription(description);
+		return evenements;
+	}
 	@Override
 	public Evenement create(Evenement evenement) {
 		Evenement evenement2=evenementRepository.save(evenement);
@@ -57,5 +68,7 @@ public class EventImpl implements IEventService {
 		evenementRepository.delete(evenement);
 		
 	}
+
+	
 
 }

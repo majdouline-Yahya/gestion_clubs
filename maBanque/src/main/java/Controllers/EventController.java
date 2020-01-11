@@ -38,6 +38,19 @@ public class EventController {
 		 return new ResponseEntity<Evenement>(evenement,HttpStatus.OK);
 	 }
 	 
+	 @RequestMapping(value="/description/{description}",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	 public ResponseEntity<Collection<Evenement>> getEventByDescription(@PathVariable("description") String description) {
+		 Collection<Evenement> evenements=eventService.findByDescription(description);
+		
+		 return new ResponseEntity<Collection<Evenement>>(evenements,HttpStatus.OK);
+	 }
+	 
+	 @RequestMapping(value="/theme/{theme}",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	 public ResponseEntity<Collection<Evenement>> getEventByTheme(@PathVariable("theme") String theme) {
+		 Collection<Evenement> evenements=eventService.findByTheme(theme);
+		
+		 return new ResponseEntity<Collection<Evenement>>(evenements,HttpStatus.OK);
+	 }
 	 
 	 @RequestMapping(value="/create",method=RequestMethod.POST,consumes=org.springframework.http.MediaType.APPLICATION_JSON_VALUE,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	 public ResponseEntity<Evenement> createEvent(@RequestBody Evenement evenement){

@@ -68,6 +68,8 @@ public class Application implements CommandLineRunner{
 		eve.add(e3);
 		Evenement e4=evenementRepository.save(new Evenement("informatique", "chatbot", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null, null));
 		eve.add(e4);
+		Evenement e5=evenementRepository.save(new Evenement("informatique", "chatbot", "fst Tanger", new Date(2020, 02, 15), new Date(2020, 02, 15), null, null));
+		eve.add(e5);
 		clubRepository.save(new Club("C.O.D.E", new Date(), tl,null, null));
 	}
 
