@@ -37,7 +37,10 @@ public class Club implements Serializable{
             inverseJoinColumns = { @JoinColumn(name = "idUser") })
     private Set<membreAdherant> membreAdherants = new HashSet<>();
     
-    @ManyToMany(fetch = FetchType.LAZY,
+    
+   /* @ManyToMany(mappedBy = "clubs", fetch = FetchType.LAZY)
+    private Set<Evenement> evenements = new HashSet<>();*/
+   @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
                 CascadeType.PERSIST,
                 CascadeType.MERGE

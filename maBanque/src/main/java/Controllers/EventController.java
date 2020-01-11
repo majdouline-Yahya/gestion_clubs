@@ -52,6 +52,13 @@ public class EventController {
 		 return new ResponseEntity<Collection<Evenement>>(evenements,HttpStatus.OK);
 	 }
 	 
+	 
+	/* @RequestMapping(value="/eventsClub/{idClub}",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	 public ResponseEntity<Collection<Evenement>> getEventByDescription(@PathVariable("idClub") Long idClub) {
+		 Collection<Evenement> evenements=eventService.findEventsOfClub(idClub);
+		
+		 return new ResponseEntity<Collection<Evenement>>(evenements,HttpStatus.OK);
+	 }*/
 	 @RequestMapping(value="/create",method=RequestMethod.POST,consumes=org.springframework.http.MediaType.APPLICATION_JSON_VALUE,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	 public ResponseEntity<Evenement> createEvent(@RequestBody Evenement evenement){
 		 

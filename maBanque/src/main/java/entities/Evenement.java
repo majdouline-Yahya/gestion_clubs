@@ -37,7 +37,7 @@ public class Evenement implements Serializable {
 	@JoinTable(name = "evenement_clubs",
             joinColumns = { @JoinColumn(name = "idEvent") },
             inverseJoinColumns = { @JoinColumn(name = "idClub") })
-    private Collection<Evenement> evenements ;
+    private Collection<Club> clubs ;
 	
 	public Evenement() {
 		super();
@@ -45,7 +45,7 @@ public class Evenement implements Serializable {
 	}
 
 	public Evenement(String description, String theme, String lieu, Date dateDebut, Date dateFin,
-			Collection<Utilisateur> equipeOrganiation, Set<Evenement> evenements) {
+			Collection<Utilisateur> equipeOrganiation, Set<Club> clubs) {
 		super();
 		Description = description;
 		Theme = theme;
@@ -53,7 +53,7 @@ public class Evenement implements Serializable {
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 		this.equipeOrganisation = equipeOrganiation;
-		this.evenements = evenements;
+		this.clubs = clubs;
 	}
 
 	public Long getIdEvent() {
@@ -112,13 +112,23 @@ public class Evenement implements Serializable {
 		this.equipeOrganisation = equipeOrganiation;
 	}
 
-	public Collection<Evenement> getEvenements() {
-		return evenements;
+	public Collection<Utilisateur> getEquipeOrganisation() {
+		return equipeOrganisation;
 	}
 
-	public void setEvenements(Set<Evenement> evenements) {
-		this.evenements = evenements;
+	public void setEquipeOrganisation(Collection<Utilisateur> equipeOrganisation) {
+		this.equipeOrganisation = equipeOrganisation;
 	}
+
+	public Collection<Club> getClubs() {
+		return clubs;
+	}
+
+	public void setClubs(Collection<Club> clubs) {
+		this.clubs = clubs;
+	}
+
+	
 	
 	
 	

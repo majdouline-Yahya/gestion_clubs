@@ -8,6 +8,7 @@ public interface IEventService {
 	Collection<Evenement> findAll();
 	Collection<Evenement> findByTheme(String theme);
 	Collection<Evenement> findByDescription(String description);
+	//Collection<Evenement> findEventsOfClub(Long idClub);
 	Evenement findOne(Long id);
 	Evenement create(Evenement evenement);
 	Evenement update(Evenement evenement);
