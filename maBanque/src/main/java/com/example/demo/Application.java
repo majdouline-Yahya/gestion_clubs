@@ -5,15 +5,23 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import Controllers.EventController;
 import dao.ClientRepository;
-import dao.CompteRepository;import metierService.IClubService;
+import dao.CompteRepository;
+import dao.EvenementRepository;
+import metierService.IClubService;
 
 
 
 @SpringBootApplication 
+
 @EntityScan(basePackages = {"entities"}) @EnableJpaRepositories(basePackages ="dao")
+@ComponentScan(basePackages = "Controllers")
+@ComponentScan(basePackages = "entities")
+@ComponentScan(basePackages = "metierService")
 public class Application implements CommandLineRunner{
     
 	
@@ -21,6 +29,9 @@ public class Application implements CommandLineRunner{
 	private ClientRepository clientRepository;
 	@Autowired
 	private CompteRepository compteRepository;
+	
+	@Autowired
+	private EvenementRepository evenementRepository;
 	
 //	@Autowired 
 //	private IClubService clubService;

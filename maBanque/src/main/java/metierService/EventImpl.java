@@ -1,8 +1,53 @@
 package metierService;
 
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import dao.EvenementRepository;
+import entities.Evenement;
 
 @Service
 public class EventImpl implements IEventService {
+    
+	@Autowired
+	public EvenementRepository evenementRepository;
+	
+	@Override
+	public Collection<Evenement> findAll() {
+		Collection<Evenement> evenements= evenementRepository.findAll();
+		return evenements;
+	}
+
+	@Override
+	public Evenement findOne(Long id) {
+		Evenement evenement=evenementRepository.getOne(id);
+		return evenement;
+	}
+
+	@Override
+	public Evenement create(Evenement evenement) {
+		Evenement evenement2=evenementRepository.save(evenement);
+		return evenement2;
+	}
+
+	@Override
+	public Evenement update(Evenement evenement) {
+		Evenement evenementUp=evenementRepository.getOne(evenement.getIdEvent());
+		if(evenementUp==null)
+		{
+			return null;
+		}
+		Evenement evenementUpdated=evenementRepository.save(evenement);
+		return evenementUpdated;
+	}
+
+	@Override
+	public void delete(Long id) {
+		Evenement evenement=evenementRepository.getOne(id);
+		evenementRepository.delete(evenement);
+		
+	}
 
 }
