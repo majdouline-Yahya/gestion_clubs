@@ -18,7 +18,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="role",discriminatorType=DiscriminatorType.STRING,length=2)
+@DiscriminatorColumn(name="role",discriminatorType=DiscriminatorType.STRING)
 public class Utilisateur implements Serializable {
 	@Id @GeneratedValue
 	private Long idUser;
