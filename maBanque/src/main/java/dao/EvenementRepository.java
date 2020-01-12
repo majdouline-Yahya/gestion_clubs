@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import entities.Evenement;
+import entities.membreAdherant;
 
 
 public interface EvenementRepository extends JpaRepository<Evenement, Long>{
@@ -23,7 +24,7 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 	    List<Evenement> findByDescription(@Param("description") String description);
 	  
 	 
-	  
+	
 	  
 	  
 	  

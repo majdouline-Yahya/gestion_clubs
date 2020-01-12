@@ -22,6 +22,7 @@ public class Evenement implements Serializable {
     
 	@Id @GeneratedValue
 	private Long idEvent;
+	private String  titre;
 	private String Description;
 	private String Theme;
 	private String lieu;
@@ -44,12 +45,13 @@ public class Evenement implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Evenement(String description, String theme, String lieu, Date dateDebut, Date dateFin,
+	public Evenement(String titre,String description, String theme, String lieu, Date dateDebut, Date dateFin,
 			Collection<Utilisateur> equipeOrganiation, Set<Club> clubs) {
 		super();
 		Description = description;
 		Theme = theme;
 		this.lieu = lieu;
+		this.titre = titre;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 		this.equipeOrganisation = equipeOrganiation;
@@ -126,6 +128,14 @@ public class Evenement implements Serializable {
 
 	public void setClubs(Collection<Club> clubs) {
 		this.clubs = clubs;
+	}
+
+	public String getTitre() {
+		return titre;
+	}
+
+	public void setTitre(String titre) {
+		this.titre = titre;
 	}
 
 	

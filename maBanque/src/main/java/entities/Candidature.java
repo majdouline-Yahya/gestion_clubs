@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 public class Candidature implements Serializable {
 	
 	@Id @GeneratedValue
-	private long idCandidature ;
+	private Long idCandidature ;
 	@ManyToOne
 	@JoinColumn(name="idUser")
 	private Utilisateur utilisateur;
@@ -41,12 +41,12 @@ public class Candidature implements Serializable {
 	}
 
 
-	public long getIdCandidature() {
+	public Long getIdCandidature() {
 		return idCandidature;
 	}
 
 
-	public void setIdCandidature(long idCandidature) {
+	public void setIdCandidature(Long idCandidature) {
 		this.idCandidature = idCandidature;
 	}
 

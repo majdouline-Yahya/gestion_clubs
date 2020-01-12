@@ -71,7 +71,7 @@ public class EventImpl implements IEventService {
 
 	/*@Override
 	public Collection<Evenement> findEventsOfClub(Long idClub) {
-		Collection<Evenement> evenements= evenementRepository.findAllEventsOfClub(idClub);
+		Collection<Evenement> evenements= evenementRepository.findEventsOfClub(idClub);
 		return evenements;
 		
 	}*/
