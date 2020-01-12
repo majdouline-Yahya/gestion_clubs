@@ -17,6 +17,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@JsonIgnoreProperties(value = { "evenements" })
 @Entity
 public class Club implements Serializable{
 
@@ -41,6 +43,7 @@ public class Club implements Serializable{
             joinColumns = { @JoinColumn(name = "idClub") },
             inverseJoinColumns = { @JoinColumn(name = "idEvent") })
     private Collection<Evenement> evenements ;
+
 	
 	
 	public Club() {

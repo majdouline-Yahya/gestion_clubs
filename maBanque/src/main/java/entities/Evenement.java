@@ -17,6 +17,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@JsonIgnoreProperties(value = { "clubs" })
 @Entity
 public class Evenement implements Serializable {
     
@@ -28,12 +30,13 @@ public class Evenement implements Serializable {
 	private String lieu;
 	private Date dateDebut;
 	private Date dateFin;
+	
 	 @ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "evenement_clubs",
             joinColumns = { @JoinColumn(name = "idEvent") },
             inverseJoinColumns = { @JoinColumn(name = "idClub") })
     private Collection<Club> clubs ;
-	
+	 
 	public Evenement() {
 		super();
 		// TODO Auto-generated constructor stub

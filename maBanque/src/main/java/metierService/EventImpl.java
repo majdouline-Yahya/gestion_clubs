@@ -1,11 +1,13 @@
 package metierService;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.EvenementRepository;
+import entities.Club;
 import entities.Evenement;
 
 @Service
@@ -68,6 +70,14 @@ public class EventImpl implements IEventService {
 		evenementRepository.delete(evenement);
 		
 	}
+
+	/*@Override
+	public Collection<Club> findClubsOfEvent(Long idEvent) {
+		List<Long> idClubs= evenementRepository.findClubsOfEvent(idEvent);
+		Collection<Club> clubs=new Collection<Club>() {
+		};
+		return null;
+	}*/
 
 	/*@Override
 	public Collection<Evenement> findEventsOfClub(Long idClub) {

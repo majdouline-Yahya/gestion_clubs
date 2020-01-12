@@ -2,6 +2,7 @@ package metierService;
 
 import java.util.Collection;
 
+import entities.Club;
 import entities.Evenement;
 
 public interface IEventService {
@@ -9,6 +10,7 @@ public interface IEventService {
 	Collection<Evenement> findByTheme(String theme);
 	Collection<Evenement> findByDescription(String description);
 	//Collection<Evenement> findEventsOfClub(Long idClub);
+	//Collection<Club> findClubsOfEvent(Long idEvent);
 	Evenement findOne(Long id);
 	Evenement create(Evenement evenement);
 	Evenement update(Evenement evenement);
