@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import dao.ClubRepository;
 import entities.Club;
+import entities.Evenement;
 import entities.membreAdherant;
 
 @Service
@@ -101,6 +102,13 @@ public class ClubImpl implements IClubService{
 		}else {
 			throw new RuntimeException("aucun membre");
 			}
+	}
+
+	@Override
+	public Collection<Evenement> evenementsClub(Long idClub) {
+		Club club=this.consulterClub(idClub);
+		Collection<Evenement> evenements=club.getEvenements();
+		return evenements;
 	}
 
 }

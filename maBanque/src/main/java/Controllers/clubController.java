@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import entities.Club;
+import entities.Evenement;
 import entities.membreAdherant;
 import metierService.ClubImpl;
 import metierService.IClubService;
@@ -81,4 +82,11 @@ public class clubController {
 		cl.supprimerClub(id);
 		return HttpStatus.OK;
 	}
+	
+	@RequestMapping(value="/eventsClub/{idClub}",method=RequestMethod.GET,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	 public ResponseEntity<Collection<Evenement>> findEventsOfClub(@PathVariable("idClub") Long idClub) {
+		 Collection<Evenement> evenements=cl.evenementsClub(idClub);
+		
+		 return new ResponseEntity<Collection<Evenement>>(evenements,HttpStatus.OK);
+	 }
 }

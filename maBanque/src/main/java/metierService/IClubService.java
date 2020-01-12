@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import entities.Club;
+import entities.Evenement;
 import entities.membreAdherant;
 
 public interface IClubService {
@@ -22,5 +23,7 @@ public interface IClubService {
 	public Club modifierClub(Club c);
 	//tous membre adherants
 	public Collection<membreAdherant> TousMembres(Long id);
+	//tous les evenements d'un club
+	public Collection<Evenement> evenementsClub(Long idClub);
 	
 }
