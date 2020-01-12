@@ -26,6 +26,7 @@ public class Club implements Serializable{
 	@Id @GeneratedValue
 	private Long idClub;
 	private String intitule;
+	private String description;
 	private Date dateCreation;
 	@ManyToOne
 	@JoinColumn(name="idTeamLeader")
@@ -58,7 +59,7 @@ public class Club implements Serializable{
     
 	
 
-	public Club(String intitule, Date dateCreation, TeamLeader teamLeader, Set<membreAdherant> membreAdherants,
+	public Club(String intitule,String description, Date dateCreation, TeamLeader teamLeader, Set<membreAdherant> membreAdherants,
 			Set<Evenement> evenements) {
 		super();
 		this.intitule = intitule;
@@ -66,6 +67,7 @@ public class Club implements Serializable{
 		this.teamLeader = teamLeader;
 		this.membreAdherants = membreAdherants;
 		this.evenements = evenements;
+		this.description = description;
 	}
 
 
@@ -133,6 +135,36 @@ public class Club implements Serializable{
 
 	public void setMembreAdherants(Set<membreAdherant> membreAdherants) {
 		this.membreAdherants = membreAdherants;
+	}
+
+
+
+
+
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+
+
+
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+
+
+
+
+
+	public void setEvenements(Collection<Evenement> evenements) {
+		this.evenements = evenements;
 	}
 
 

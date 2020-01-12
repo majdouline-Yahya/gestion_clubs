@@ -82,9 +82,9 @@ public class Application implements CommandLineRunner{
 		Evenement e4=evenementRepository.save(new Evenement("titre1","informatique", "chatbot", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
 		eve.add(e4);
 		
-		Club club1= new Club("C.O.D.E", new Date(), tl,mem, eve);
-		Club club= new Club("girls Code", new Date(), tl,mem1, eve);
-		Club club3= new Club("Code it", new Date(), tl,null, null);
+		Club club1= new Club("C.O.D.E","ce club concerne tout ce qui est codage et programmation", new Date(), tl,mem, eve);
+		Club club= new Club("girls Code","ce club est juste pour les filles programmeuses ", new Date(), tl,mem1, eve);
+		Club club3= new Club("Code it","ce club est la combinaison de tout ce qui est informatique et mathematique", new Date(), tl,null, null);
 		
 		clubRepository.save(club1);
 		clubRepository.save(club);
