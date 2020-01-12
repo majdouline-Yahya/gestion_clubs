@@ -95,13 +95,10 @@ public class ClubImpl implements IClubService{
 
 	@Override
 	public Collection<membreAdherant> TousMembres(Long id) {
-		Collection<membreAdherant> clubs=clubReository.TousMembres(id);
-		if(!clubs.isEmpty())
-		{
-			return clubs;
-		}else {
-			throw new RuntimeException("aucun membre");
-			}
+		Club club=this.consulterClub(id);
+		Collection<membreAdherant> membreAdherants=club.getMembreAdherants();
+		return membreAdherants;
+		
 	}
 
 	@Override
