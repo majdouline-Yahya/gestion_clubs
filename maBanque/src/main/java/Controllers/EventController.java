@@ -1,6 +1,7 @@
 package Controllers;
 
 import java.awt.PageAttributes.MediaType;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import entities.Club;
 import entities.Evenement;
 import metierService.IEventService;
 @CrossOrigin(origins = "http://localhost:3000")
@@ -54,12 +56,6 @@ public class EventController {
 	 }
 	 
 	 
-	/* @RequestMapping(value="/eventsClub/{idClub}",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
-	 public ResponseEntity<Collection<Evenement>> getEventByDescription(@PathVariable("idClub") Long idClub) {
-		 Collection<Evenement> evenements=eventService.findEventsOfClub(idClub);
-		
-		 return new ResponseEntity<Collection<Evenement>>(evenements,HttpStatus.OK);
-	 }*/
 	 @RequestMapping(value="/create",method=RequestMethod.POST,consumes=org.springframework.http.MediaType.APPLICATION_JSON_VALUE,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	 public ResponseEntity<Evenement> createEvent(@RequestBody Evenement evenement){
 		 
@@ -90,7 +86,13 @@ public class EventController {
 	 }
 	 
 	 
-	 
+
+		@RequestMapping(value="/clubsOfEvents/{idEvent}",method=RequestMethod.GET,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+		 public ResponseEntity<Collection<Club>> findClubsOfEvent(@PathVariable("idEvent") Long idEvent) {
+			 Collection<Club> clubs=eventService.findClubsOfEvent(idEvent);
+			
+			 return new ResponseEntity<Collection<Club>>(clubs,HttpStatus.OK);
+		 }
 	 
 	 
 	 
