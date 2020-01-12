@@ -1,5 +1,7 @@
 package metierService;
 
+import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
+
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,9 @@ import org.springframework.stereotype.Service;
 import dao.CandidatureRepesitory;
 import dao.EvenementRepository;
 import entities.Candidature;
+import entities.Club;
 import entities.Evenement;
+import entities.Utilisateur;
 
 @Service
 public class CandidatureImpl implements ICandidatureService {
@@ -71,9 +75,14 @@ public class CandidatureImpl implements ICandidatureService {
 	}
 
 	@Override
-	public boolean accept(Candidature candidature) {
-	
-		return false;
+	public void accept(Candidature candidature) {
+	    
+	    	Utilisateur utilisateur=candidature.getUtilisateur();
+		    Club club= candidature.getClub();
+		    candidatureRepesitory.BecomeMember(utilisateur.getIdUser(), club.getIdClub());
+		    candidatureRepesitory.delete(candidature);
+			
+	    
 	}
 
 }

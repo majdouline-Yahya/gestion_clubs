@@ -14,6 +14,6 @@ public interface ICandidatureService {
 	Candidature create(Candidature candidature);
 	Candidature update(Candidature candidature);
 	void delete(Long id);
-	boolean accept(Candidature candidature);
+	void  accept(Candidature candidature);
 
 }

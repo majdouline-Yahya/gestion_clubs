@@ -80,6 +80,19 @@ public class CandidaturesController {
 		    return new ResponseEntity<Candidature>(HttpStatus.NO_CONTENT);
 	 }
 	 
+	 @RequestMapping(value="/accept/{id}",method=RequestMethod.POST)
+	 public ResponseEntity<Candidature> accept(@PathVariable Long id,@RequestBody Candidature candidature){
+	
+		 if(candidature!=null && id==candidature.getIdCandidature()) {
+			candidatureService.accept(candidature);
+			 
+		 }
+		 if(candidature==null) {
+				return new ResponseEntity<Candidature>(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		 return new ResponseEntity<Candidature>(HttpStatus.OK);
+	 }
+	 
 	 
 	 
 	 
