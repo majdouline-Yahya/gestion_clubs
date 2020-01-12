@@ -27,11 +27,7 @@ public class Club implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="idTeamLeader")
 	private TeamLeader teamLeader;
-	@ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
-                CascadeType.PERSIST,
-                CascadeType.MERGE
-            })
+	@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "membres_clubs",
             joinColumns = { @JoinColumn(name = "idClub") },
             inverseJoinColumns = { @JoinColumn(name = "idUser") })
@@ -40,11 +36,7 @@ public class Club implements Serializable{
     
    /* @ManyToMany(mappedBy = "clubs", fetch = FetchType.LAZY)
     private Set<Evenement> evenements = new HashSet<>();*/
-   @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
-                CascadeType.PERSIST,
-                CascadeType.MERGE
-            })
+   @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "evenement_clubs",
             joinColumns = { @JoinColumn(name = "idClub") },
             inverseJoinColumns = { @JoinColumn(name = "idEvent") })

@@ -28,13 +28,7 @@ public class Evenement implements Serializable {
 	private String lieu;
 	private Date dateDebut;
 	private Date dateFin;
-	@OneToMany(mappedBy="idUser",fetch=FetchType.LAZY)
-	private Collection<Utilisateur> equipeOrganisation;
-	 @ManyToMany(fetch = FetchType.LAZY,
-	            cascade = {
-	                CascadeType.PERSIST,
-	                CascadeType.MERGE
-	            })
+	 @ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "evenement_clubs",
             joinColumns = { @JoinColumn(name = "idEvent") },
             inverseJoinColumns = { @JoinColumn(name = "idClub") })
@@ -45,8 +39,7 @@ public class Evenement implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Evenement(String titre,String description, String theme, String lieu, Date dateDebut, Date dateFin,
-			Collection<Utilisateur> equipeOrganiation, Set<Club> clubs) {
+	public Evenement(String titre,String description, String theme, String lieu, Date dateDebut, Date dateFin, Set<Club> clubs) {
 		super();
 		Description = description;
 		Theme = theme;
@@ -54,7 +47,7 @@ public class Evenement implements Serializable {
 		this.titre = titre;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
-		this.equipeOrganisation = equipeOrganiation;
+	
 		this.clubs = clubs;
 	}
 
@@ -106,21 +99,6 @@ public class Evenement implements Serializable {
 		this.dateFin = dateFin;
 	}
 
-	public Collection<Utilisateur> getEquipeOrganiation() {
-		return equipeOrganisation;
-	}
-
-	public void setEquipeOrganiation(Collection<Utilisateur> equipeOrganiation) {
-		this.equipeOrganisation = equipeOrganiation;
-	}
-
-	public Collection<Utilisateur> getEquipeOrganisation() {
-		return equipeOrganisation;
-	}
-
-	public void setEquipeOrganisation(Collection<Utilisateur> equipeOrganisation) {
-		this.equipeOrganisation = equipeOrganisation;
-	}
 
 	public Collection<Club> getClubs() {
 		return clubs;

@@ -23,6 +23,7 @@ import entities.Evenement;
 import entities.TeamLeader;
 import entities.Utilisateur;
 import entities.membreAdherant;
+import javassist.expr.NewArray;
 
 
 
@@ -64,22 +65,35 @@ public class Application implements CommandLineRunner{
 		mem.add(m2);
 		membreAdherant m3=clientRepository.save(new membreAdherant("yasmine", "yasmin12@gmail.com", 23));
 		mem.add(m3);
-		
-		Evenement e1=evenementRepository.save(new Evenement("titre1","intellectuelle", "jounée de vie", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null, null));
-		eve.add(e1);
-		Evenement e2=evenementRepository.save(new Evenement("titre1","intelligence", "ingenieur de demain", "fsjes", new Date(2020, 02, 15), new Date(2020, 02, 15), null, null));
-		eve.add(e2);
-		Evenement e3=evenementRepository.save(new Evenement("titre1","biologie", "jumelle", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null, null));
-		eve.add(e3);
-		Evenement e4=evenementRepository.save(new Evenement("titre1","informatique", "chatbot", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null, null));
-		eve.add(e4);
-		clubRepository.save(new Club("C.O.D.E", new Date(), tl,null, null));
-		Club club= new Club("girls Code", new Date(), tl,null, null);
 		Utilisateur utilisateur=new Utilisateur("Yahya", "test@test.com", 26);
 		Utilisateur utilisateur2=new Utilisateur("lina", "test@test.com", 30);
+		Set<membreAdherant> mem1=new HashSet<>();
+		mem1.add(m);
+		mem1.add(m2);
+		
+		
+		
+		Evenement e1=evenementRepository.save(new Evenement("titre1","intellectuelle", "jounée de vie", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
+		eve.add(e1);
+		Evenement e2=evenementRepository.save(new Evenement("titre1","intelligence", "ingenieur de demain", "fsjes", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
+		eve.add(e2);
+		Evenement e3=evenementRepository.save(new Evenement("titre1","biologie", "jumelle", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
+		eve.add(e3);
+		Evenement e4=evenementRepository.save(new Evenement("titre1","informatique", "chatbot", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
+		eve.add(e4);
+		
+		Club club1= new Club("C.O.D.E", new Date(), tl,mem, eve);
+		Club club= new Club("girls Code", new Date(), tl,mem1, eve);
+		Club club3= new Club("Code it", new Date(), tl,null, null);
+		
+		clubRepository.save(club1);
+		clubRepository.save(club);
+		clubRepository.save(club3);
+		
 		clientRepository.save(utilisateur);
 		clientRepository.save(utilisateur2);
 		clubRepository.save(club);
+		
 		candidatureRepesitory.save(new Candidature(utilisateur, club, "motivation", "skills", new Date()));
 		candidatureRepesitory.save(new Candidature(utilisateur2, club, "motivation3", "skills3", new Date()));
 		
