@@ -27,9 +27,9 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 	  /*@Query(value= "SELECT * FROM evenement_clubs where id_club = ?1",nativeQuery=true)
 	    List<Evenement> findEventsByClub( Long idClub);*/
 	  
-	 /* @Query(value= "SELECT * FROM evenement_clubs where id_event = ?1",nativeQuery=true)
+	  @Query(value= "SELECT * FROM evenement_clubs where id_event = ?1",nativeQuery=true)
 	    List<Long> findClubsOfEvent( Long idEvent);
-	  */
+	  
 	 
 	
 	  

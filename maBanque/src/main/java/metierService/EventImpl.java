@@ -71,13 +71,13 @@ public class EventImpl implements IEventService {
 		
 	}
 
-	/*@Override
+	@Override
 	public Collection<Club> findClubsOfEvent(Long idEvent) {
 		List<Long> idClubs= evenementRepository.findClubsOfEvent(idEvent);
-		Collection<Club> clubs=new Collection<Club>() {
-		};
+		//Collection<Club> clubs=new Collection<Club>() {
+		 
 		return null;
-	}*/
+	}
 
 	/*@Override
 	public Collection<Evenement> findEventsOfClub(Long idClub) {
