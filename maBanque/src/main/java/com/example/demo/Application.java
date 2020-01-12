@@ -19,6 +19,7 @@ import dao.CompteRepository;
 import dao.EvenementRepository;
 import entities.Candidature;
 import entities.Club;
+import entities.Compte;
 import entities.Evenement;
 import entities.TeamLeader;
 import entities.Utilisateur;
@@ -97,6 +98,9 @@ public class Application implements CommandLineRunner{
 		candidatureRepesitory.save(new Candidature(utilisateur, club, "motivation", "skills", new Date()));
 		candidatureRepesitory.save(new Candidature(utilisateur2, club, "motivation3", "skills3", new Date()));
 		
-	}
+		Compte compte= new Compte("majdouline yahya", "majdo", m);
+		Compte compte2= new Compte("rachide", "1344", m2);
+		compteRepository.save(compte);
+		compteRepository.save(compte2);
 
-}
+}}
