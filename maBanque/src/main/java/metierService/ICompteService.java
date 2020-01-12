@@ -12,4 +12,6 @@ public interface ICompteService {
 	Compte create(Compte compte);
 	Compte update(Compte compte);
 	void delete(Long id);
+	Compte verifyLogin(String login,String password);
+	
 }

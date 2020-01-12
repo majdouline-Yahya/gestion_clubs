@@ -31,6 +31,8 @@ public class CompteController {
 	
 	 
 	 
+	 
+	 
 	 @RequestMapping(value="/all/{id}",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	 public ResponseEntity<Compte> getCompte(@PathVariable("id") Long id) {
 		 Compte compte=compteService.findOne(id);
@@ -60,7 +62,7 @@ public class CompteController {
 	 
 	 
 	 @RequestMapping(value="/update/{id}",method=RequestMethod.PUT,consumes=org.springframework.http.MediaType.APPLICATION_JSON_VALUE,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
-	 public ResponseEntity<Compte> updateCompte(@PathVariable Long id,@RequestBody Compte compte) {
+	 public ResponseEntity<Compte> updateCompte(@PathVariable("id") Long id,@RequestBody Compte compte) {
 		 
 		 Compte compteUpdated=null;
 		 if(compte!=null && id==compte.getIdCompte()) {
@@ -74,12 +76,19 @@ public class CompteController {
 	}
 	 
 	 @RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE)
-	 public ResponseEntity<Compte> deleteCompte(@PathVariable Long id){
+	 public ResponseEntity<Compte> deleteCompte(@PathVariable("id") Long id){
 		    compteService.delete(id);
 		    return new ResponseEntity<Compte>(HttpStatus.NO_CONTENT);
 	 }
 	 	 	 
-	 
+	 @RequestMapping(value="/verifyLogin/{login}&{password}",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	 public ResponseEntity<Compte> VerifyLogin(@PathVariable("login") String login,@PathVariable("password") String password){
+		 Compte compte= compteService.verifyLogin(login, password);
+		 if(compte==null) {
+				return new ResponseEntity<Compte>(HttpStatus.NOT_FOUND);
+			}
+		 return new ResponseEntity<Compte>(compte,HttpStatus.OK);
+	 }
 	 
 	 
 }

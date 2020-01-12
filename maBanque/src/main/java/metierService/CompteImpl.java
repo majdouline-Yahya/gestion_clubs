@@ -67,4 +67,10 @@ public class CompteImpl implements ICompteService{
 		compteRepository.delete(compte);
 		
 	}
+
+	@Override
+	public Compte verifyLogin(String login, String password) {
+		Compte compte=compteRepository.verifyLogin(login, password);
+		return compte;
+	}
 }
