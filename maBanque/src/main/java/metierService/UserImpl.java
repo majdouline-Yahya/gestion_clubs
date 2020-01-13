@@ -59,4 +59,10 @@ public class UserImpl implements IUserService {
 		
 	}
 
+	@Override
+	public Utilisateur findByMail(String email) {
+		Utilisateur utilisateur = clientRepository.findByMail(email);
+		return utilisateur;
+	}
+
 }

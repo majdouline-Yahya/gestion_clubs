@@ -5,13 +5,17 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import dao.ClientRepository;
 import dao.CompteRepository;
 import entities.Compte;
+import entities.Utilisateur;
 
 @Service
 public class CompteImpl implements ICompteService{
 	@Autowired
 	public CompteRepository compteRepository;
+	
+	@Autowired ClientRepository clientRepository;
 	
 	
 	@Override
@@ -43,6 +47,7 @@ public class CompteImpl implements ICompteService{
 	
 	@Override
 	public Compte create(Compte compte) {
+		
 		Compte compte2 = compteRepository.save(compte) ;
 		return compte2;
 	}

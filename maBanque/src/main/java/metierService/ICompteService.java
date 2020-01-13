@@ -15,4 +15,5 @@ public interface ICompteService {
 	void delete(Long id);
 	Compte verifyLogin(String login,String password);
 	
+	
 }

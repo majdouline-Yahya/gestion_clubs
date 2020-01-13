@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import entities.Compte;
+import entities.Utilisateur;
 import metierService.ICompteService;
+import metierService.IUserService;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping(value="/comptes")
@@ -25,6 +27,9 @@ public class CompteController {
 
 	 @Autowired
 	 private ICompteService compteService;
+	 
+	 @Autowired
+	 private IUserService userService;
 	 
 	 @RequestMapping(value="/all",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	 public ResponseEntity<Collection<Compte>> comptes(){
@@ -56,8 +61,14 @@ public class CompteController {
 	 
 	 
 	 @RequestMapping(value="/create",method=RequestMethod.POST,consumes=org.springframework.http.MediaType.APPLICATION_JSON_VALUE,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	
 	 public ResponseEntity<Compte> createCompte(@RequestBody Compte compte){
-		 
+		Utilisateur utilisateur=compte.getUtilisateur();
+		Utilisateur utilisateurEx=userService.findByMail(utilisateur.getEmail());
+		if(utilisateurEx==null) {
+			userService.create(utilisateur);
+		}
+		
 		 Compte compteCreated= compteService.create(compte);
 		 return new ResponseEntity<Compte>(compteCreated,HttpStatus.CREATED);
 	 }
@@ -96,5 +107,5 @@ public class CompteController {
 		 return new ResponseEntity<Compte>(compte,HttpStatus.OK);
 	 }
 	 
-	 
+	  
 }
