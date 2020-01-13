@@ -3,6 +3,7 @@ package metierService;
 import java.util.Collection;
 
 import entities.Compte;
+import entities.Utilisateur;
 
 public interface ICompteService {
    
