@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import entities.Compte;
 import metierService.ICompteService;
@@ -81,8 +84,11 @@ public class CompteController {
 		    return new ResponseEntity<Compte>(HttpStatus.NO_CONTENT);
 	 }
 	 	 	 
-	 @RequestMapping(value="/verifyLogin/{login}&{password}",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
-	 public ResponseEntity<Compte> VerifyLogin(@PathVariable("login") String login,@PathVariable("password") String password){
+	 @RequestMapping(value="/verifyLogin",method=RequestMethod.POST,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	 @ResponseBody
+	 public ResponseEntity<Compte> VerifyLogin(@RequestBody ObjectNode objectNode){
+		 String login=objectNode.get("login").asText();
+		 String password=objectNode.get("password").asText();
 		 Compte compte= compteService.verifyLogin(login, password);
 		 if(compte==null) {
 				return new ResponseEntity<Compte>(HttpStatus.NOT_FOUND);
