@@ -60,7 +60,7 @@ public class CompteController {
 	 
 	 
 	 
-	 @RequestMapping(value="/create",method=RequestMethod.POST,consumes=org.springframework.http.MediaType.APPLICATION_JSON_VALUE,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	 @RequestMapping(value="/register",method=RequestMethod.POST,consumes=org.springframework.http.MediaType.APPLICATION_JSON_VALUE,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	
 	 public ResponseEntity<Compte> createCompte(@RequestBody Compte compte){
 		Utilisateur utilisateur=compte.getUtilisateur();
