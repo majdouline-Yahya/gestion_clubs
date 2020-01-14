@@ -17,6 +17,7 @@ import dao.ClientRepository;
 import dao.ClubRepository;
 import dao.CompteRepository;
 import dao.EvenementRepository;
+import entities.Admin;
 import entities.Candidature;
 import entities.Club;
 import entities.Compte;
@@ -58,6 +59,8 @@ public class Application implements CommandLineRunner{
 		Set<membreAdherant> mem=new HashSet<>();
 		Set<Evenement> eve=new HashSet<>();
 		TeamLeader tl=clientRepository.save(new TeamLeader("LAAROUSSI", "houda96@gmail.com", 23));
+		Admin admin= clientRepository.save(new Admin("Mehdi","mehdi@gmail.com",22));
+		
 		membreAdherant m=clientRepository.save(new membreAdherant("YAHYA", "yahya96@gmail.com", 23));
 		mem.add(m);
 		membreAdherant m1=clientRepository.save(new membreAdherant("Ahmad", "med159@gmail.com", 23));
@@ -101,8 +104,10 @@ public class Application implements CommandLineRunner{
 		candidatureRepesitory.save(new Candidature(utilisateur2, club, "motivation3", "skills3", new Date()));
 		
 		Compte compte= new Compte("majdouline yahya", "majdo", m);
+		Compte compte3= new Compte("mehdi", "mehdi", admin);
 		Compte compte2= new Compte("rachide", "1344", m2);
 		compteRepository.save(compte);
 		compteRepository.save(compte2);
+		compteRepository.save(compte3);
 
 }}

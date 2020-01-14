@@ -63,7 +63,7 @@ public class clubController {
 	
 	
 	@RequestMapping(value="/create",method=RequestMethod.POST,consumes=org.springframework.http.MediaType.APPLICATION_JSON_VALUE,produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Club> ajouterClub(Club c)
+	public ResponseEntity<Club> ajouterClub(@RequestBody Club c)
 	{
 		Club club = cl.ajouterClub(c);
 		return new ResponseEntity<Club>(club, new HttpHeaders(), HttpStatus.OK);
