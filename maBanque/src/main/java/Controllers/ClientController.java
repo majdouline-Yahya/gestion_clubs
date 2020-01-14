@@ -67,4 +67,10 @@ public class ClientController {
 		    return new ResponseEntity<Utilisateur>(HttpStatus.NO_CONTENT);
 	 }
 	 
+	 
+	 @RequestMapping(value="/roleOfUser/{id}",produces=org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	 public ResponseEntity<String> users(@PathVariable("id") Long idUser){
+		 String role =userService.findRoleOfUser(idUser);
+		 return new ResponseEntity<String>(role,HttpStatus.OK);
+	 }
 }

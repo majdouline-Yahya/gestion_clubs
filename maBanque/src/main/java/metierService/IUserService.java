@@ -13,5 +13,6 @@ public interface IUserService {
 	Utilisateur findByMail(String email);
 	Utilisateur create(Utilisateur utilisateur);
 	Utilisateur update(Utilisateur utilisateur);
+	 String findRoleOfUser(Long idUser);
 	void delete(Long idUser);
 }

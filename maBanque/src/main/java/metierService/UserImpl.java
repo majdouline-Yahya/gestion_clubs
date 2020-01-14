@@ -65,4 +65,10 @@ public class UserImpl implements IUserService {
 		return utilisateur;
 	}
 
+	@Override
+	public String findRoleOfUser(Long idUser) {
+		String role = clientRepository.findRoleOfUser(idUser);
+		return role;
+	}
+
 }
