@@ -76,12 +76,14 @@ public class Application implements CommandLineRunner{
 		
 		Evenement e1=evenementRepository.save(new Evenement("titre1","intellectuelle", "jounée de vie", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
 		eve.add(e1);
-		Evenement e2=evenementRepository.save(new Evenement("titre1","intelligence", "ingenieur de demain", "fsjes", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
+		Evenement e2=evenementRepository.save(new Evenement("titre1","intelligence", "recrutement", "fsjes", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
 		eve.add(e2);
-		Evenement e3=evenementRepository.save(new Evenement("titre1","biologie", "jumelle", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
+		Evenement e3=evenementRepository.save(new Evenement("titre1","biologie", "recrutement", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
 		eve.add(e3);
 		Evenement e4=evenementRepository.save(new Evenement("titre1","informatique", "chatbot", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
 		eve.add(e4);
+		
+		
 		
 		Club club1= new Club("C.O.D.E","ce club concerne tout ce qui est codage et programmation", new Date(), tl,mem, eve);
 		Club club= new Club("girls Code","ce club est juste pour les filles programmeuses ", new Date(), tl,mem1, eve);
