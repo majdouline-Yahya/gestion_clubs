@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-@JsonIgnoreProperties(value = { "evenements", "membreAdherants"  })
+@JsonIgnoreProperties(value = { "evenements", "membreAdherants","membreAdherants" })
 @Entity
 
 public class Club implements Serializable{

@@ -9,9 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import Controllers.clubController;
+import dao.ClientRepository;
 import dao.ClubRepository;
 import entities.Club;
+import entities.Compte;
 import entities.Evenement;
+import entities.TeamLeader;
+import entities.Utilisateur;
 import entities.membreAdherant;
 
 @Service
@@ -20,6 +25,14 @@ public class ClubImpl implements IClubService{
 	@Autowired
 	private ClubRepository clubReository;
 	
+	@Autowired 
+	private ClientRepository ClientRepository;
+	
+	@Autowired
+	private IUserService userService;
+	
+	@Autowired 
+	private ICompteService compteService;
 	
 	@Override
 	public Club consulterClub(Long idClub) {
@@ -35,7 +48,30 @@ public class ClubImpl implements IClubService{
 
 	@Override
 	public Club ajouterClub(Club c) {
-		return clubReository.save(c);
+		TeamLeader teamLeader= c.getTeamLeader();
+		ClientRepository.save(teamLeader);
+		Club club= clubReository.save(c);
+		String mail= teamLeader.getEmail();
+		String password= "pass";
+		Compte compte= new Compte(mail, password, teamLeader);
+		compteService.create(compte);
+		return club;
+		//Utilisateur utilisateur=ClientRepository.findByMail(mail);
+		
+		/*if(utilisateur==null) return null;
+		else {
+			
+
+			ClientRepository.UpdateRoleOfUser("TeamLeader", utilisateur.getIdUser());
+			//Club club= clubReository.save(c);
+		
+		  //ClientRepository.UpdateRoleOfUser( "TeamLeader",utilisateur.getIdUser());
+		  //  ClientRepository.deleteFromMembresClub(utilisateur.getIdUser());
+			
+			
+			return null;
+		}*/
+		
 	}
 
 	@Override

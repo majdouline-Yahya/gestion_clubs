@@ -5,6 +5,7 @@ import java.util.List;
 
 import entities.Club;
 import entities.Evenement;
+import entities.TeamLeader;
 import entities.membreAdherant;
 
 public interface IClubService {
