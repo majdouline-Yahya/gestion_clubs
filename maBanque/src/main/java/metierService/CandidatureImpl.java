@@ -3,6 +3,7 @@ package metierService;
 import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,6 +54,7 @@ public class CandidatureImpl implements ICandidatureService {
 
 	@Override
 	public Candidature create(Candidature candidature) {
+		candidature.setDateCandidature(new Date());
 		Candidature candidatureCreated=candidatureRepesitory.save(candidature);
 		return candidatureCreated;
 	}

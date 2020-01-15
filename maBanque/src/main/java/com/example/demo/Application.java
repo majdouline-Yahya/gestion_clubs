@@ -103,11 +103,17 @@ public class Application implements CommandLineRunner{
 		candidatureRepesitory.save(new Candidature(utilisateur, club, "motivation", "skills", new Date()));
 		candidatureRepesitory.save(new Candidature(utilisateur2, club, "motivation3", "skills3", new Date()));
 		
+		
 		Compte compte= new Compte("majdouline yahya", "majdo", m);
 		Compte compte3= new Compte("mehdi", "mehdi", admin);
 		Compte compte2= new Compte("rachide", "1344", m2);
+		Compte compte5= new Compte("houda", "houda", tl);
+		Compte test= new Compte("test", "test", utilisateur);
 		compteRepository.save(compte);
 		compteRepository.save(compte2);
 		compteRepository.save(compte3);
+		compteRepository.save(compte5);
+		compteRepository.save(test);
+		
 
 }}
