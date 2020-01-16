@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import entities.Club;
 import entities.Utilisateur;
 import metierService.IUserService;
 
@@ -73,4 +74,6 @@ public class ClientController {
 		 String role =userService.findRoleOfUser(idUser);
 		 return new ResponseEntity<String>(role,HttpStatus.OK);
 	 }
+	 
+	
 }

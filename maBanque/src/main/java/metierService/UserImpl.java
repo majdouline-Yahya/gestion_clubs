@@ -1,11 +1,14 @@
 package metierService;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.ClientRepository;
+import dao.ClubRepository;
+import entities.Club;
 import entities.Evenement;
 import entities.Utilisateur;
 
@@ -14,6 +17,9 @@ public class UserImpl implements IUserService {
 
 	@Autowired
 	public ClientRepository clientRepository;
+	
+	@Autowired
+	public ClubRepository clubRepository;
 	@Override
 	public Collection<Utilisateur> findAll() {
 		Collection<Utilisateur> utilisateurs= clientRepository.findAll();
@@ -70,5 +76,7 @@ public class UserImpl implements IUserService {
 		String role = clientRepository.findRoleOfUser(idUser);
 		return role;
 	}
+
+	
 
 }

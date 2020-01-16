@@ -2,6 +2,7 @@ package metierService;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,6 +51,7 @@ public class ClubImpl implements IClubService{
 	public Club ajouterClub(Club c) {
 		TeamLeader teamLeader= c.getTeamLeader();
 		ClientRepository.save(teamLeader);
+		c.setDateCreation(new Date());
 		Club club= clubReository.save(c);
 		String mail= teamLeader.getEmail();
 		String password= "pass";

@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,4 +26,7 @@ public interface ClientRepository extends JpaRepository<Utilisateur, Long> {
 	  
 	  @Query(value = "DELETE * FROM membres_club where id_user=?1 ",nativeQuery=true)
 	    void deleteFromMembresClub(Long idUser );
+	  
+	  @Query(value = "SELECT id_club FROM membres_clubs where id_user=?1 ",nativeQuery=true)
+	    Collection<Long> findClubOfUser(Long idUser);
 }
