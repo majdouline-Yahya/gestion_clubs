@@ -58,6 +58,9 @@ public class Application implements CommandLineRunner{
 		//tester l'ajout a la base de donnees!!!
 		Set<membreAdherant> mem=new HashSet<>();
 		Set<Evenement> eve=new HashSet<>();
+		Set<Evenement> eve233=new HashSet<>();
+		Set<Evenement> eve23=new HashSet<>();
+		Set<Evenement> eve235=new HashSet<>();
 		TeamLeader tl=clientRepository.save(new TeamLeader("LAAROUSSI", "houda96@gmail.com", 23));
 		Admin admin= clientRepository.save(new Admin("Mehdi","mehdi@gmail.com",22));
 		
@@ -69,7 +72,7 @@ public class Application implements CommandLineRunner{
 		mem.add(m2);
 		membreAdherant m3=clientRepository.save(new membreAdherant("yasmine", "yasmin12@gmail.com", 23));
 		mem.add(m3);
-		Utilisateur utilisateur=new Utilisateur("Yahya", "test@test.com", 26);
+		Utilisateur utilisateur=new Utilisateur("yahya lina", "yahya88@test.com", 26);
 		Utilisateur utilisateur2=new Utilisateur("lina", "test@test.com", 30);
 		Set<membreAdherant> mem1=new HashSet<>();
 		mem1.add(m);
@@ -77,22 +80,25 @@ public class Application implements CommandLineRunner{
 		
 		
 		
-		Evenement e1=evenementRepository.save(new Evenement("titre1","intellectuelle", "jounée de vie", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
+		Evenement e1=evenementRepository.save(new Evenement("Conférence Intelligence Artificielle","IT", "Le Gouvernement de Chine ", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
 		eve.add(e1);
-		Evenement e2=evenementRepository.save(new Evenement("titre1","intelligence", "recrutement", "fsjes", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
-		eve.add(e2);
-		Evenement e3=evenementRepository.save(new Evenement("titre1","biologie", "recrutement", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
-		eve.add(e3);
-		Evenement e4=evenementRepository.save(new Evenement("titre1","informatique", "chatbot", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
+		Evenement e2=evenementRepository.save(new Evenement("Recrutement","Recrutement de nouveaux membres", "recrutement", "fsjes", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
+		eve233.add(e2);
+		Evenement e3=evenementRepository.save(new Evenement("Recrutement","Rejoignez-nous!", "recrutement", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
+		eve23.add(e3);
+		Evenement e5=evenementRepository.save(new Evenement("Recrutement","On Recrute!", "recrutement", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
+		eve235.add(e5);
+		Evenement e4=evenementRepository.save(new Evenement("Conférence en Informatique ","informatique", "chatbot", "fst settat", new Date(2020, 02, 15), new Date(2020, 02, 15), null));
 		eve.add(e4);
 		
 		
 		
-		Club club1= new Club("C.O.D.E","ce club concerne tout ce qui est codage et programmation", new Date(), tl,mem, eve);
-		Club club= new Club("girls Code","ce club est juste pour les filles programmeuses ", new Date(), tl,mem1, eve);
-		Club club3= new Club("Code it","ce club est la combinaison de tout ce qui est informatique et mathematique", new Date(), tl,null, null);
+		Club club1= new Club("C.O.D.E","ce club concerne tout ce qui est codage et programmation", new Date(), tl,mem, eve23);
+		Club club4= new Club("UMUS","Un Mois Un Savoir : Chaque mois vous améliorez vos compétences", new Date(), tl,mem, eve235);
+		Club club= new Club("girls Code","ce club est juste pour les filles programmeuses pour encourager les filles à coder ", new Date(), tl,mem1, eve233);
+		Club club3= new Club("Code it","ce club est la combinaison de tout ce qui est informatique et mathematique", new Date(), tl,null, eve);
 		
-		clubRepository.save(club1);
+		clubRepository.save(club1); 
 		clubRepository.save(club);
 		clubRepository.save(club3);
 		
@@ -108,7 +114,7 @@ public class Application implements CommandLineRunner{
 		Compte compte3= new Compte("mehdi", "mehdi", admin);
 		Compte compte2= new Compte("rachide", "1344", m2);
 		Compte compte5= new Compte("houda", "houda", tl);
-		Compte test= new Compte("test", "test", utilisateur);
+		Compte test= new Compte("yahya lina", "test", utilisateur);
 		compteRepository.save(compte);
 		compteRepository.save(compte2);
 		compteRepository.save(compte3);
